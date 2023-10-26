@@ -5,3 +5,11 @@
 .row {
   height: 100%;
 }
+
+.plm_container {
+  height: 100vh;
+}
+
+.plm {
+  height: 100%;
+}
