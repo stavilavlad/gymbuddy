@@ -1,15 +1,74 @@
-#mycontainer {
-  height: 100vh;
+body {
+  background-color: #000;
 }
 
-.row {
-  height: 100%;
+.mynav {
+  background-color: #000;
 }
 
-.plm_container {
-  height: 100vh;
+.nav-item {
+  font-size: 20px;
+  margin-left: 20px;
+  font-family: sans-serif, "Cabin";
 }
 
-.plm {
-  height: 100%;
+h1 {
+  color: #a7d129;
+  font-style: italic;
+}
+
+span {
+  color: #fff;
+}
+
+hr {
+  background-color: #fff;
+  margin: 0%;
+}
+
+.my-container {
+  background-color: #3e432e;
+}
+
+.btn {
+  background-color: #a7d129;
+  border: none;
+  font-weight: bold;
+}
+
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 380px);
+  grid-template-rows: 1fr 1fr;
+  gap: 33px;
+  /* background-color: #3e432e; */
+  padding-bottom: 100px;
+  border-top: solid white 1px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #fff solid 2px;
+  border-radius: 25px;
+  width: 400px;
+  background-color: #000;
+}
+
+.first-container {
+  margin-top: 130px;
+}
+
+.body-name {
+  font-family: sans-serif, "Cabin";
+  font-weight: bolder;
+  font-size: 30px;
+  color: #fff;
+}
+
+.legs-item {
+  grid-column: 2 / 3;
 }
