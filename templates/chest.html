@@ -4,6 +4,8 @@
 {% block title %} GymBuddy Chest {% endblock %}
 
 <!--  -->
+<!-- {% block active %} active {% endblock %} -->
+<!--  -->
 {% block main %}
 <div class="container pt-5 mt-5">
   <h1>CHEST EXERCISES</h1>
@@ -15,6 +17,13 @@
       <td>1</td>
       <td>1</td>
       <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>{{ active_status }}</td>
     </tr>
   </table>
 </div>

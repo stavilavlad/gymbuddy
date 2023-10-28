@@ -42,7 +42,6 @@ hr {
   grid-template-columns: repeat(auto-fill, 380px);
   grid-template-rows: 1fr 1fr;
   gap: 33px;
-  /* background-color: #3e432e; */
   padding-bottom: 100px;
   border-top: solid white 1px;
 }
