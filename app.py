@@ -19,7 +19,7 @@ Session(app)
 
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///exercises.db")
+db = SQL("sqlite://./exercises.db")
 
 
 @app.after_request
