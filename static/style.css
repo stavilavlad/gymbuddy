@@ -16,8 +16,8 @@ body {
   padding-right: 350px;
 }
 
-.dropdown-item{
-  padding-left: 20px  ;
+.dropdown-item {
+  padding-left: 20px;
 }
 h1 {
   color: #a7d129;
@@ -77,10 +77,6 @@ hr {
 
 /* HERE STARTS EXERCISE PAGE CSS */
 .flex-container-exercise {
-  /* display: grid;
-  width: 100%;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 1fr 1fr 1fr; */
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -113,19 +109,36 @@ hr {
 }
 
 #mgroup-exercise {
-  text-transform:uppercase;
+  text-transform: uppercase;
+}
+/* HERE STARTS INDIVIDUAL EXERCISE CSS     */
+.ceva-flex {
+  display: flex;
+}
+.flex-item-exercise {
+  display: flex;
+  flex-direction: column;
 }
 
+#description {
+  text-align: left;
+  flex-basis: 100%;
+}
 
-
+/*  */
+/* 
+ */
+/* 
+  */
 @media (max-width: 500px) {
   #mgroup-exercise {
     margin-top: 50px;
-    text-transform:uppercase;
+    text-transform: uppercase;
   }
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1200px) {
   .nav-list {
     padding-right: 0px;
+  }
 }

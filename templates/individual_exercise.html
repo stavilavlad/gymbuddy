@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+<!--  -->
+{% block title%} GymBuddy {{ exercise_name }} {% endblock %}
+<!--  -->
+<!--  -->
+{% block main %}
+<div class="container pt-5 mt-5 mb-5" style="border-bottom: solid 1px white">
+  <h1 id="mgroup-exercise">{{ rows[0]["exercise_name"] }}</h1>
+</div>
+
+<div class="container flex-container-exercise mb-5" style="text-align: center">
+  <div>
+    <p class="exercise-anchor">Level</p>
+    <p>{{ rows[0]["level"]}}</p>
+  </div>
+  <div>
+    <p class="exercise-anchor">Equipment</p>
+    <p>{{ rows[0]["equipment"] }}</p>
+  </div>
+</div>
+
+<div class="container ceva-flex">
+  <div class="container flex-item-exercise">
+    <img style="border-radius: 10px" class="mb-3" src="{{ rows[0]['exercise_image1'] }}" height="300px" width="400px" />
+    <img style="border-radius: 10px" class="mb-3" src="{{ rows[0]['exercise_image2'] }}" height="300px" width="400px" />
+  </div>
+  <div class="flex-item-exercise" id="description">
+    <p class="exercise-anchor" style="text-align: center">DESCRIPTION</p>
+    <p>{{ rows[0]["description"]}}</p>
+  </div>
+</div>
+{% endblock %}

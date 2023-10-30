@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 <!--  -->
-{% block title %} GymBuddy Chest {% endblock %}
+{% block title %} GymBuddy {{mgroup}} {% endblock %}
 
 <!--  -->
 {% block main %}
@@ -11,36 +11,36 @@
 
 {% for row in rows %}
 <div class="container exercise-name">
-  <a href="/exercises/{{mg}}/{{id}}" style="text-decoration: none; color: #616f39">
+  <a href="/exercises_individual/{{ row['id'] }}" style="text-decoration: none; color: #616f39">
     <h4>{{ row["exercise_name"] }}</h4>
   </a>
   <hr />
 
   <div class="container flex-container-exercise">
-    <a class="exercise-anchor" href="/">
+    <a class="exercise-anchor" href="/exercises_individual/{{ row['id'] }}">
       <div class="flex-item-exercise">
         <p>Level</p>
         <p class="p-color">{{ row["level"] }}</p>
       </div>
     </a>
-    <a class="exercise-anchor" href="/">
+    <a class="exercise-anchor" href="/exercises_individual/{{ row['id'] }}">
       <div class="flex-item-exercise">
         <p>Equipment</p>
         <p class="p-color">{{ row["equipment"] }}</p>
       </div>
     </a>
-    <a class="exercise-anchor" href="/">
+    <a class="exercise-anchor" href="/exercises_individual/{{ row['id'] }}">
       <div class="flex-item-exercise">
         <p>Group</p>
         <p class="p-color">{{ row["body_part"] }}</p>
       </div>
     </a>
-    <a class="exercise-anchor" href="/">
+    <a class="exercise-anchor" href="/exercises_individual/{{ row['id'] }}">
       <div class="flex-item-exercise">
         <img class="exercise-img" src="{{ row['exercise_image1'] }}" height="100px" width="125px" />
       </div>
     </a>
-    <a class="exercise-anchor" href="/">
+    <a class="exercise-anchor" href="/exercises_individual/{{ row['id'] }}">
       <div class="flex-item-exercise">
         <img class="exercise-img" src="{{ row['exercise_image2'] }}" height="100px" width="125px" />
       </div>
