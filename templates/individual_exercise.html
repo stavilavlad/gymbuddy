@@ -9,20 +9,20 @@
 </div>
 
 <div class="container flex-container-exercise mb-5" style="text-align: center">
-  <div>
+  <div class="me-3">
     <p class="exercise-anchor">Level</p>
     <p>{{ rows[0]["level"]}}</p>
   </div>
-  <div>
+  <div class="ms-3">
     <p class="exercise-anchor">Equipment</p>
     <p>{{ rows[0]["equipment"] }}</p>
   </div>
 </div>
 
 <div class="container ceva-flex">
-  <div class="container flex-item-exercise">
-    <img style="border-radius: 10px" class="mb-3" src="{{ rows[0]['exercise_image1'] }}" height="300px" width="400px" />
-    <img style="border-radius: 10px" class="mb-3" src="{{ rows[0]['exercise_image2'] }}" height="300px" width="400px" />
+  <div class="flex-item-exercise">
+    <img class="individual-images mb-3" style="border-radius: 10px" class="mb-3" src="{{ rows[0]['exercise_image1'] }}" height="300px" width="400px" />
+    <img class="individual-images mb-3" style="border-radius: 10px" class="mb-3" src="{{ rows[0]['exercise_image2'] }}" height="300px" width="400px" />
   </div>
   <div class="flex-item-exercise" id="description">
     <p class="exercise-anchor" style="text-align: center">DESCRIPTION</p>
