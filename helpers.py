@@ -78,3 +78,36 @@ def lookup(symbol):
 def usd(value):
     """Format value as USD."""
     return f"${value:,.2f}"
+
+    # if e_id == "favourites":
+    #     rows = db.execute(
+    #         "SELECT * FROM user_exercise JOIN exercises ON user_exercise.exercise_id = exercises.id JOIN images_dataset ON images_dataset.exercise_name = exercises.exercise_name WHERE user_exercise.user_id = ?", session["user_id"])
+    #     return render_template("exercises.html",  mgroup="FAVOURITE", rows=rows, active_status_favourites="active")
+
+    # if request.method == "POST":
+    #     exercises_list = []
+    #     rows = db.execute(
+    #         "SELECT * FROM user_exercise JOIN exercises ON user_exercise.exercise_id = exercises.id JOIN images_dataset ON images_dataset.exercise_name = exercises.exercise_name WHERE user_exercise.user_id = ?", session["user_id"])
+    #     for row in rows:
+    #         exercises_list.append(row["exercise_id"])
+    #     print(exercises_list)
+
+    #     if e_id in exercises_list:
+    #         print(exercises_list)
+    #         return render_template("exercises.html",  mgroup="FAVOURITE", rows=rows, active_status_favourites="active")
+
+    #     db.execute("INSERT INTO user_exercise(user_id, exercise_id) VALUES (?,?)",
+    #                session["user_id"], e_id)
+
+    #     if e_id == "favourites":
+    #     rows = db.execute(
+    #         "SELECT * FROM user_exercise JOIN exercises ON user_exercise.exercise_id = exercises.id JOIN images_dataset ON images_dataset.exercise_name = exercises.exercise_name WHERE user_exercise.user_id = ?", session["user_id"])
+    #     return render_template("exercises.html",  mgroup="FAVOURITE", rows=rows, active_status_favourites="active")
+
+    # db.execute("INSERT INTO user_exercise(user_id, exercise_id) VALUES (?,?)",
+    #            session["user_id"], e_id)
+
+    # rows = db.execute(
+    #     "SELECT * FROM user_exercise JOIN exercises ON user_exercise.exercise_id = exercises.id JOIN images_dataset ON images_dataset.exercise_name = exercises.exercise_name WHERE user_exercise.user_id = ?", session["user_id"])
+
+    # return render_template("exercises.html",  mgroup="FAVOURITE", rows=rows, active_status_favourites="active")

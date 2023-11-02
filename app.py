@@ -31,9 +31,48 @@ def after_request(response):
     return response
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html", active_status_home="active")
+    success = False
+    error = False
+    succ_message = ""
+
+    # Sign up
+    if request.method == "POST" and request.form.get("signup_username"):
+        username = request.form.get("signup_username")
+        password = request.form.get("signup_password")
+        db_usernames = db.execute("SELECT username FROM users;")
+        list_usernames = []
+        for i in range(len(db_usernames)):
+            list_usernames.append(db_usernames[i]["username"])
+
+        if username in list_usernames:
+            err_message = "Username already exists!"
+            error = True
+            return render_template("index.html", active_status_home="active", error=error, err_message=err_message)
+
+        succ_message = "Signed Up Succesfully!"
+        success = True
+        db.execute("INSERT INTO users(username, hash) VALUES (?,?)",
+                   username, generate_password_hash(password))
+
+    # Log in
+    elif request.method == "POST" and request.form.get("username"):
+
+        rows = db.execute("SELECT * FROM users WHERE username = ?",
+                          request.form.get("username"))
+
+        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+            err_message = "Incorrect username or password!"
+            error = True
+            return render_template("index.html", active_status_home="active", error=error, err_message=err_message)
+
+        succ_message = "Logged In!"
+        success = True
+
+        session["user_id"] = rows[0]["id"]
+
+    return render_template("index.html", active_status_home="active", success=success, succ_message=succ_message)
 
 
 @app.route("/exercises/<muscle_group>")
@@ -55,3 +94,38 @@ def individual_exercise(id):
     rows = db.execute(
         "SELECT exercises.id, exercises.exercise_name, exercises.description, exercises.type, exercises.body_part, exercises.equipment, exercises.level, images_dataset.description_url, images_dataset.exercise_image1, images_dataset.exercise_image2 FROM exercises JOIN images_dataset ON exercises.exercise_name = images_dataset.exercise_name WHERE exercises.id = ? AND images_dataset.exercise_image1 IS NOT NULL AND images_dataset.exercise_image1 <> '' AND images_dataset.exercise_image2 <> '';", id)
     return render_template("individual_exercise.html", rows=rows, active_status_exercises="active")
+
+
+@app.route("/profile/<e_id>", methods=["GET", "POST"])
+def profile(e_id):
+
+    if e_id == "favourites":
+        rows = db.execute(
+            "SELECT * FROM user_exercise JOIN exercises ON user_exercise.exercise_id = exercises.id JOIN images_dataset ON images_dataset.exercise_name = exercises.exercise_name WHERE user_exercise.user_id = ?", session["user_id"])
+        return render_template("favourites.html",  mgroup="FAVOURITE", rows=rows, active_status_favourites="active")
+
+    elif request.method == "POST" and request.form.get("fav") == "fav":
+        print("adauga")
+        print(request.form.get("fav"))
+        print(e_id)
+        db.execute("INSERT INTO user_exercise(user_id, exercise_id) VALUES (?,?)",
+                   session["user_id"], e_id)
+        rows = db.execute(
+            "SELECT * FROM user_exercise JOIN exercises ON user_exercise.exercise_id = exercises.id JOIN images_dataset ON images_dataset.exercise_name = exercises.exercise_name WHERE user_exercise.user_id = ?", session["user_id"])
+        return render_template("favourites.html",  mgroup="FAVOURITE", rows=rows, active_status_favourites="active")
+
+    elif request.method == "POST" and request.form.get("remove") == "remove":
+        print("sterge")
+        db.execute("DELETE FROM user_exercise WHERE user_id = ? AND exercise_id = ?",
+                   session["user_id"], e_id)
+    print("e doar get")
+    rows = db.execute(
+        "SELECT * FROM user_exercise JOIN exercises ON user_exercise.exercise_id = exercises.id JOIN images_dataset ON images_dataset.exercise_name = exercises.exercise_name WHERE user_exercise.user_id = ?", session["user_id"])
+
+    return render_template("favourites.html",  mgroup="FAVOURITE", rows=rows, active_status_favourites="active")
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")

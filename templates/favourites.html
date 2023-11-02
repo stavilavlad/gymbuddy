@@ -6,17 +6,17 @@
 <!--  -->
 {% block main %}
 <div class="container pt-5 mt-5 mb-5">
-  <h1 id="mgroup-exercise">{{ mgroup }} EXERCISES</h1>
+  <h1 id="mgroup-exercise">FAVOURITE EXERCISES</h1>
 </div>
 
 {% for row in rows %}
 <div class="container exercise-name">
-  <a href="/exercises_individual/{{ row['id'] }}" style="text-decoration: none; color: #616f39">
+  <a href="/exercises_individual/{{ row['exercise_id'] }}" style="text-decoration: none; color: #616f39">
     <h4>{{ row["exercise_name"] }}</h4>
   </a>
   {% if session["user_id"] %}
   <div>
-    <form action="/profile/{{ row['id'] }}" method="post">
+    <form action="/profile/{{ row['exercise_id'] }}" method="post">
       <input type="hidden" class="inputf" name="fav" value="" />
       <button class="svg-flex1" type="submit" id="myButtonFav" onclick="changeInputValue('fav')">
         <svg class="mx-3 mb-3 mt-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
@@ -36,30 +36,30 @@
   <hr />
 
   <div class="container flex-container-exercise">
-    <a class="exercise-anchor" href="/exercises_individual/{{ row['id'] }}">
+    <a class="exercise-anchor" href="/exercises_individual/{{ row['exercise_id'] }}">
       <div class="flex-item-exercise">
         <p>Level</p>
         <p class="p-color">{{ row["level"] }}</p>
       </div>
     </a>
-    <a class="exercise-anchor" href="/exercises_individual/{{ row['id'] }}">
+    <a class="exercise-anchor" href="/exercises_individual/{{ row['exercise_id'] }}">
       <div class="flex-item-exercise">
         <p>Equipment</p>
         <p class="p-color">{{ row["equipment"] }}</p>
       </div>
     </a>
-    <a class="exercise-anchor" href="/exercises_individual/{{ row['id'] }}">
+    <a class="exercise-anchor" href="/exercises_individual/{{ row['exercise_id'] }}">
       <div class="flex-item-exercise">
         <p>Group</p>
         <p class="p-color">{{ row["body_part"] }}</p>
       </div>
     </a>
-    <a class="exercise-anchor" href="/exercises_individual/{{ row['id'] }}">
+    <a class="exercise-anchor" href="/exercises_individual/{{ row['exercise_id'] }}">
       <div class="flex-item-exercise">
         <img class="exercise-img" src="{{ row['exercise_image1'] }}" height="130px" width="175px" />
       </div>
     </a>
-    <a class="exercise-anchor" href="/exercises_individual/{{ row['id'] }}">
+    <a class="exercise-anchor" href="/exercises_individual/{{ row['exercise_id'] }}">
       <div class="flex-item-exercise">
         <img class="exercise-img" src="{{ row['exercise_image2'] }}" height="130px" width="175px" />
       </div>
