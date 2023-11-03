@@ -14,6 +14,11 @@
       <h1 class="display-5 fw-bold lh-1 mb-3">GET YOUR BODY IN SHAPE & <br /><span style="color: white">STAY HEALTHY</span></h1>
 
       <p class="lead pb-5" style="letter-spacing: 1px; font-weight: 350">Unlock your full potential and embark on a transformative fitness journey with <span style="font-weight: bold; color: #a7d129">GymBuddy</span>, your ultimate destination for all things exercise. Whether you're a seasoned gym enthusiast or just starting your fitness adventure, our comprehensive platform offers a treasure trove of workouts</p>
+      {% if session["user_id"] %}
+      <p style="font-size: small"></p>
+      {% else %}
+      <p style="font-size: small">Log in to add exercises to your favourites!</p>
+      {% endif %}
     </div>
   </div>
 </div>
