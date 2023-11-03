@@ -115,6 +115,7 @@ def exercises(muscle_group):
 
 @app.route("/exercises_individual/<id>")
 def individual_exercise(id):
+    username = None
     if "user_id" in session:
         # Fetch the username if the session exists
         usrname = db.execute(
