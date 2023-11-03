@@ -182,6 +182,17 @@ hr {
     text-transform: uppercase;
   }
 
+  #alert-succes {
+    margin-top: 155px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+  #alert-danger {
+    margin-top: 155px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+
   .grid-container {
     width: 100%;
     display: grid;

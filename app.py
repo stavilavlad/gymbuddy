@@ -93,6 +93,7 @@ def index():
 
 @app.route("/exercises/<muscle_group>")
 def exercises(muscle_group):
+    username = None
     if "user_id" in session:
         # Fetch the username if the session exists
         usrname = db.execute(
