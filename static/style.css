@@ -26,6 +26,10 @@ body {
   text-align: center;
 }
 
+.alert-warning {
+  text-align: center;
+}
+
 h1 {
   color: #a7d129;
   font-style: italic;
@@ -177,12 +181,6 @@ hr {
     margin-top: 50px;
     text-transform: uppercase;
   }
-  /* 
-  .exercise-img {
-    border-radius: 10px;
-    height: "125px";
-    width: "165px";
-  } */
 
   .grid-container {
     width: 100%;

@@ -45,9 +45,10 @@
               </li>
             </ul>
             {% if session["user_id"] %}
-            <div>{{ username }}</div>
+            <!-- <div><h4 style="margin-top: 10px">{{ username }}</h4></div> -->
             <div class="col-md-2 text-end">
-              <a href="/profile/favourites"><button type="button" class="btn btn-light mx-2 my-1">Profile</button></a>
+              <!-- <a href="/profile/favourites"><button type="button" class="btn btn-light mx-2 my-1">{{ username }}</button></a> -->
+              <a href="/profile/favourites"><button type="button" class="btn btn-light mx-2 my-1">{{ username }}</button></a>
               <a href="/logout"><button type="button" class="btn btn-light my-1">Log Out</button></a>
             </div>
             {% else %}
@@ -113,6 +114,7 @@
               <div class="form-floating mb-3">
                 <input type="text" class="form-control rounded-3" id="floatingInputSign" name="signup_username" placeholder="Username" required />
                 <label for="floatingInput">Username</label>
+                <div id="usernameError" style="color: red"></div>
               </div>
               <div class="form-floating mb-3">
                 <input type="password" class="form-control rounded-3" id="floatingPasswordSign" name="signup_password" placeholder="Password" required />

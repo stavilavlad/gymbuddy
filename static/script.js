@@ -1,10 +1,25 @@
 function validateAndSubmit() {
-  if (validateForm() && confirmPwd()) {
+  if (validateForm() && confirmPwd() && validateUsername()) {
     return true;
   } else {
     return false;
   }
 }
+
+function validateUsername() {
+  var usernameInput = document.getElementById("floatingInputSign");
+  var usernameError = document.getElementById("usernameError");
+
+  if (usernameInput.value.length > 24) {
+    usernameError.innerHTML = "Username must be less than 24 characters";
+    usernameError.style.display = "block";
+    return false;
+  } else {
+    usernameError.style.display = "none";
+    return true;
+  }
+}
+
 function validateForm() {
   var passwordInput = document.getElementById("floatingPasswordSign");
   var passwordError = document.getElementById("passwordError");
@@ -34,34 +49,16 @@ function confirmPwd() {
   }
 }
 
-// function changeInputValue(newValue) {
-//   var inputElement = document.querySelectorAll(".inputf");
-//   inputElement.value = newValue;
-// }
-
 function changeInputValue(newValue) {
-  // Find all input elements with the specified class
   var inputElements = document.querySelectorAll(".inputf");
-
-  // Loop through each input element and change its value
   inputElements.forEach(function (inputElement) {
-    // Perform your logic to change the input value
-    inputElement.value = newValue; // Replace "new value" with your desired value
+    inputElement.value = newValue;
   });
 }
 
 function changeInputValueRemove(newValue) {
-  // Find all input elements with the specified class
   var inputElements = document.querySelectorAll(".inputr");
-
-  // Loop through each input element and change its value
   inputElements.forEach(function (inputElement) {
-    // Perform your logic to change the input value
-    inputElement.value = newValue; // Replace "new value" with your desired value
+    inputElement.value = newValue;
   });
 }
-
-// function changeInputValueRemove(newValue) {
-//   var inputElement = document.querySelectorAll(".inputr");
-//   inputElement.value = newValue;
-// }
